@@ -56,7 +56,7 @@ const Star = mongoose.model("Star", {
   }
 })
 
-// GET all visible stars
+// GET visible constellations
 app.get("/stars", (req, res) => {
   const latitude = parseInt(req.query.latitude, 10)
   const lstHours = parseInt(req.query.lstHours, 10)
