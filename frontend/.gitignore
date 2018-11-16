@@ -13,6 +13,7 @@
 
 #images
 /public/images
+/Artwork
 
 # misc
 .DS_Store
