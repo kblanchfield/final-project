@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from "prop-types"
 import { scaleBand, scaleLinear } from 'd3-scale'
 import Axes from "./Axes"
 import Bars from "./Bars"
@@ -33,8 +34,6 @@ export default class Chart extends Component {
     const margins = { top: 50, right: 50, bottom: 50, left: 50 }
     const svgDimensions = { width: 600, height: 500 }
 
-    const maxValue = Math.max(...data.map(d => d.clouds))
-
     // scaleBand type
     const xScale = scaleBand()
       .padding(0.5)
@@ -58,7 +57,6 @@ export default class Chart extends Component {
             scales={{ xScale, yScale }}
             margins={margins}
             data={data}
-            maxValue={maxValue}
             svgDimensions={svgDimensions}
           />]
           :
@@ -66,11 +64,15 @@ export default class Chart extends Component {
         }
         <defs>
           <linearGradient id="myGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" class="start" />
-              <stop offset="100%" class="end" />
+              <stop offset="0%" className="start" />
+              <stop offset="100%" className="end" />
           </linearGradient>
         </defs>
       </svg>
     )
   }
+}
+
+Chart.propTypes = {
+  data: PropTypes.array
 }

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
 import Location from "../components/Location"
 import Chart from "../components/Chart"
 import Map from "../components/Map"
@@ -66,16 +67,13 @@ class LocationPage extends Component {
 
     return (
       <div className="page">
-        <div class="left">
+        <div className="left">
           <div className="locationData">
             <Location
               lat={this.state.lat}
               lng={this.state.lng}
               weatherMessage={this.state.weatherMessage}
              />
-            {/*
-            <BarChart data={this.state.midnightCloudCover} size={[300,400]} />
-            */}
             <Chart data={this.state.midnightCloudCover}/>
             <Next link="/stars" text="Go to stars" />
           </div>
@@ -92,6 +90,10 @@ class LocationPage extends Component {
     )
 
   }
+}
+
+LocationPage.propTypes = {
+  updateCoords: PropTypes.func
 }
 
 export default LocationPage

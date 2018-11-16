@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
-
+import PropTypes from "prop-types"
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
 
 class MyMap extends Component {
 
@@ -119,6 +119,13 @@ class MyMap extends Component {
       </div>
     );
   }
+}
+
+MyMap.propTypes = {
+  lat: PropTypes.number,
+  lng: PropTypes.number,
+  updateCoords: PropTypes.func,
+  isMarkerShown: PropTypes.bool
 }
 
 export default GoogleApiWrapper({

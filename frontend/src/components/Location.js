@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
 
 class Location extends Component {
 
@@ -12,6 +13,10 @@ class Location extends Component {
     )
 
   }
+}
+
+Location.propTypes = {
+  weatherMessage: PropTypes.string
 }
 
 export default Location

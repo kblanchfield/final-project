@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from "prop-types"
 
 export default class Bars extends Component {
 
@@ -24,4 +25,11 @@ export default class Bars extends Component {
       <g>{bars}</g>
     )
   }
+}
+
+Bars.propTypes = {
+  scales: PropTypes.object,
+  margins: PropTypes.object,
+  data: PropTypes.array,
+  svgDimensions: PropTypes.object
 }
