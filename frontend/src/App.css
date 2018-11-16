@@ -1,0 +1,131 @@
+.App {
+  text-align: center;
+}
+
+.front-page {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/originals/82/2d/fc/822dfcf697e7473a61897965791da389.jpg");
+  background-size: cover;
+  filter: opacity(0.8);
+}
+
+.front-page .title {
+  width: 60%;
+  margin: 0px auto;
+  padding: 100px 0;
+}
+
+.front-page a {
+  color: white;
+}
+
+h1 {
+  font-family: "Lily Script One", cursive;
+  font-size: 100px;
+  color: #F0F0F0;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+h3 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 30px;
+  color: #F0F0F0;
+  text-align: center;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.left {
+  width: 50%;
+  background-color: blue;
+}
+
+.locationData {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.right {
+  width: 50%;
+  overflow: scroll;
+}
+
+.constellation {
+  display: inline;
+}
+
+.constellation img {
+  width: 33.3%;
+  object-fit: cover;
+  object-position: center;
+  display: inline;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #EFEFEF;
+}
+
+.footer a {
+  color: black;
+  text-decoration: none;
+}
+
+.Axis text {
+  color: #E0E0E0;
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+}
+
+.Axis-Bottom path,
+.Axis-Bottom line {
+  stroke: #E0E0E0;
+  display: none;
+}
+
+.Axis-Bottom text {
+  text-anchor: center;
+}
+
+.Axis-Left line {
+  stroke: #E0E0E0;
+  stroke-dasharray: 5,5;
+  opacity: 0.5;
+}
+
+.Axis-Left path {
+  stroke: #E0E0E0;
+  display: none;
+}
+
+.Axis-Left text {
+  text-anchor: end;
+}
+
+.bar {
+  fill: url(#myGradient);
+  transition: all 1s;
+  opacity: 0.9;
+}
+
+.start {
+  stop-color: #a0ced9;
+}
+
+.end {
+  stop-color: #83a9b2;
+}
