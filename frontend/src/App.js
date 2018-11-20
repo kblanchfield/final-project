@@ -10,6 +10,8 @@ import './App.css'
 class App extends Component {
 
   state = {
+    isLoggedIn: false,
+    collectedStars: [],
     lat: 0,
     lng: 0
   }
@@ -21,19 +23,28 @@ class App extends Component {
     })
   }
 
+  checkLogInStatus = (isLoggedIn, collectedStars) => {
+    this.setState({
+      isLoggedIn,
+      collectedStars
+    })
+  }
+
   render() {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={FrontPage} />
+          <Route exact path="/" render={(props) => <FrontPage {...props}
+            onLogin={this.checkLogInStatus} />}
+            />
           <Route exact path="/location" render={(props) => <LocationPage {...props}
             updateCoords={this.updateCoords} />}
           />
           <Route exact path="/stars" render={(props) => <StarsPage {...props}
             lat={this.state.lat}
-            lng={this.state.lng} />}
+            lng={this.state.lng}
+            collectedStars={this.state.collectedStars} />}
           />
-          <Route exact path="/map" component={MapPage} />
           <Footer />
         </div>
       </Router>

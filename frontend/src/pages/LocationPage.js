@@ -1,9 +1,18 @@
 import React, { Component } from "react"
+import styled from "styled-components"
 import PropTypes from "prop-types"
 import Location from "../components/Location"
 import Chart from "../components/Chart"
 import Map from "../components/Map"
 import Next from "../components/Next"
+
+const LocationPageWrapper = styled.div`
+  width: 100vw;
+  height: calc(100vh - 30px);
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+`
 
 class LocationPage extends Component {
 
@@ -25,6 +34,10 @@ class LocationPage extends Component {
     if (prevState.lat !== this.state.lat) {
       this.getWeather()
     }
+  }
+
+  componentDidMount() {
+    this.getWeather()
   }
 
   getWeather = () => {
@@ -66,7 +79,7 @@ class LocationPage extends Component {
   render() {
 
     return (
-      <div className="page">
+      <LocationPageWrapper>
         <div className="left">
           <div className="locationData">
             <Location
@@ -83,10 +96,9 @@ class LocationPage extends Component {
             lat={this.state.lat}
             lng={this.state.lng}
             updateCoords={this.updateCoords}
-            isMarkerShown={true}
           />
         </div>
-      </div>
+      </LocationPageWrapper>
     )
 
   }

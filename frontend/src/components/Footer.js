@@ -1,17 +1,28 @@
-import React from 'react'
+import React from "react"
+import styled from "styled-components"
 import { Link } from "react-router-dom"
 
-const Footer = () => {
+const FooterWrapper = styled.div`
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #EFEFEF;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+`
 
+const Footer = () => {
   return (
-    <div className="footer">
+    <FooterWrapper>
       <Link to="/">Home</Link>
       <Link to="/location">Location</Link>
       <Link to="/stars">Stars</Link>
-      <Link to="/map">Chart</Link>
-    </div>
+    </FooterWrapper>
   )
-
-  }
+}
 
 export default Footer

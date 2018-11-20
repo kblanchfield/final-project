@@ -105,7 +105,7 @@ class MyMap extends Component {
       <div>
         <Map
           google={this.props.google}
-          style={{ width: "50%", height: "100%"}}
+          containerStyle={{ width: "50%", height: `calc(100% - 30px)` }}
           initialCenter={{
             lat: this.state.lat,
             lng: this.state.lng

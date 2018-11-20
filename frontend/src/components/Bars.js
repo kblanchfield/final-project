@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
+import styled from "styled-components"
 import PropTypes from "prop-types"
 
-export default class Bars extends Component {
+const BarWrapper = styled.rect`
+  fill: url(#myGradient);
+  transition: all 1s;
+  opacity: 0.9;
+`
+
+class Bars extends Component {
 
   render() {
     const { scales, margins, data, svgDimensions } = this.props
@@ -10,14 +17,15 @@ export default class Bars extends Component {
 
     const bars = (
       data.map(datum =>
-        <rect
+        <BarWrapper
           key={datum.day}
           x={xScale(datum.day)}
           y={yScale(datum.clouds)}
           height={height - margins.bottom - scales.yScale(datum.clouds)}
           width={xScale.bandwidth()}
           className="bar"
-        />,
+        >
+        </BarWrapper>
       )
     )
 
@@ -26,6 +34,8 @@ export default class Bars extends Component {
     )
   }
 }
+
+export default Bars
 
 Bars.propTypes = {
   scales: PropTypes.object,
