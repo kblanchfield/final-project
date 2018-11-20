@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import * as d3Axis from 'd3-axis'
-import { select as d3Select } from 'd3-selection'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import * as d3Axis from "d3-axis"
+import { select as d3Select } from "d3-selection"
 
-export default class Axis extends Component {
+export default class Yaxis extends Component {
 
   componentDidMount() {
     this.renderAxis()
@@ -10,8 +11,8 @@ export default class Axis extends Component {
 
   renderAxis() {
     const axis = d3Axis.axisLeft()
-      .scale(this.props.scale)
-      .tickSize(-this.props.tickSize)
+      .scale(this.props.scales.yScale)
+      .tickSize(-(this.props.svgDimensions.width - this.props.margins.left - this.props.margins.right))
       .tickPadding([12])
       .ticks([6])
 
@@ -23,8 +24,14 @@ export default class Axis extends Component {
       <g
         className="Axis Axis-Left"
         ref={(el) => { this.axisElement = el; }}
-        transform={this.props.translate}
+        transform={`translate(${this.props.margins.left}, 0)`}
       />
     )
   }
+}
+
+Yaxis.propTypes = {
+  scales: PropTypes.object,
+  margins: PropTypes.object,
+  svgDimensions: PropTypes.object
 }

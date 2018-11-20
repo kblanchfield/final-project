@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types"
 import { scaleBand, scaleLinear } from 'd3-scale'
-import Axes from "./Axes"
+import Xaxis from "./Xaxis"
+import Yaxis from "./Yaxis"
 import Bars from "./Bars"
 
 export default class Chart extends Component {
@@ -72,9 +73,15 @@ export default class Chart extends Component {
       .domain([0, 100])
       .range([svgDimensions.height - margins.bottom, margins.top])
 
+
     return (
       <svg width={svgDimensions.width} height={svgDimensions.height}>
-           <Axes
+          <Xaxis
+           scales={{ xScale, yScale }}
+           margins={margins}
+           svgDimensions={svgDimensions}
+           />,
+           <Yaxis
             scales={{ xScale, yScale }}
             margins={margins}
             svgDimensions={svgDimensions}
