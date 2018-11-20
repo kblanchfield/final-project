@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import Constellation from "../components/Constellation"
-// import Moment from "react-moment"
+import Next from "../components/Next"
 
 const StarsPageWrapper = styled.div`
   width: 100vw;
@@ -156,7 +156,8 @@ class StarsPage extends Component {
           <div className="left">
             There are 88 recognised constellations in the night sky.
             Tonight you'll see {this.state.visibleStars.length} constellations.
-            And {this.state.visibleStars.length - this.state.collectedStars.length} you haven't seen before.
+            That's {this.state.visibleStars.length - this.state.collectedStars.length} star constellations you haven't collected yet!
+            <Next link="/location" text="Pick another location" />
           </div>
           <div className="right">
             {this.state.visibleStars.map(constellation =>
@@ -177,7 +178,7 @@ class StarsPage extends Component {
             There are 88 recognised constellations in the night sky.
           </div>
           <div className="right">
-            Right
+            ...
           </div>
         </StarsPageWrapper>
       )

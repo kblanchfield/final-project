@@ -16,6 +16,12 @@ class App extends Component {
     lng: 0
   }
 
+  componentDidMount() {
+    if (!this.state.isLoggedIn) {
+      sessionStorage.removeItem("accessToken")
+    }
+  }
+
   updateCoords = (newLat, newLng) => {
     this.setState({
       lat: newLat,

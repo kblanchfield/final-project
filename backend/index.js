@@ -65,7 +65,7 @@ app.get("/stars", (req, res) => {
   const latitude = parseInt(req.query.latitude, 10)
   const lstHours = parseInt(req.query.lstHours, 10)
   Star.find({
-    Dec_deg: { $gte: latitude - 90, $lte: latitude + 90 },
+    Dec_deg: { $gte: latitude - 70, $lte: latitude + 70 },
     RA_hours: { $gte: lstHours - 6, $lte: lstHours + 6 }
   }).then(stars => {
     const constellations = stars.map(star => star.Constellation)

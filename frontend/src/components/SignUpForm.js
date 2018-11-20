@@ -1,5 +1,42 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+import styled from "styled-components"
+
+const Heading = styled.h4`
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: right;
+  margin: 10px;
+`
+
+const Label = styled.label`
+  font-family: "Lily Script One", cursive;
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-align: left;
+  margin: 0px;
+`
+
+const Input = styled.input`
+  padding: 7px;
+  margin: 7px 0px;
+`
+
+const Button = styled.button`
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 7px;
+  margin: 7px 0px;
+  &:hover {
+    color: #EFEFEF;
+    background-color: black;
+  }
+`
 
 class SignUpForm extends Component {
 
@@ -49,15 +86,15 @@ class SignUpForm extends Component {
   render() {
     return (
       <div>
-        <h4>CREATE A NEW ACCOUNT</h4>
+        <Heading>NEW USER</Heading>
         <form className="signupForm" onSubmit={this.submitForm}>
-          <label htmlFor="username">Username: </label>
-          <input name="username" type="text" onChange={this.handleFormUpdate} />
+          <Label htmlFor="username">Username: </Label>
+          <Input name="username" type="text" onChange={this.handleFormUpdate} ></Input>
           <br />
-          <label htmlFor="password">Password: </label>
-          <input name="password" type="password" onChange={this.handleFormUpdate} />
+          <Label htmlFor="password">Password: </Label>
+          <Input name="password" type="password" onChange={this.handleFormUpdate} ></Input>
           <br />
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
         {this.state.isLoggedIn ?
           <p>You're in! Go to LOCATION to start calculating the stars in your sky!</p>

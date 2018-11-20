@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react"
+import styled from "styled-components"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
+const LinkWrapper = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+  color: purple;
+  display: block;
+  margin: 10px auto;
+`
+
 const Next = (props) => (
-  <Link to={props.link}>{props.text}</Link>
+  <LinkWrapper>
+    <Link to={props.link}>{props.text}</Link>
+  </LinkWrapper>
 )
 
 Next.propTypes = {

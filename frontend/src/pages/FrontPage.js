@@ -30,6 +30,19 @@ const Subtitle = styled.h3`
   margin: 0px;
 `
 
+const Forms = styled.div`
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+  color: #F0F0F0;
+  text-align: center;
+  padding: 0px;
+  margin: 40px auto;
+`
+
 class FrontPage extends Component {
 
   render() {
@@ -37,8 +50,10 @@ class FrontPage extends Component {
       <FrontPageWrapper>
           <Title>Collect the stars</Title>
           <Subtitle>Predict which stars will be in your sky tonight</Subtitle>
+          <Forms>
             <LogInForm onLogin={this.props.onLogin} />
             <SignUpForm onLogin={this.props.onLogin} />
+          </Forms>
       </FrontPageWrapper>
     )
   }

@@ -88,7 +88,7 @@ class LocationPage extends Component {
               weatherMessage={this.state.weatherMessage}
              />
             <Chart data={this.state.midnightCloudCover}/>
-            <Next link="/stars" text="Go to stars" />
+            <Next link="/stars" text="See tonight's stars" />
           </div>
         </div>
         <div className="right">
