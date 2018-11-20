@@ -32,7 +32,8 @@ class Constellation extends Component {
 
 Constellation.propTypes = {
   constellation: PropTypes.string,
-  collectedStars: PropTypes.array
+  collectedStars: PropTypes.array,
+  onClick: PropTypes.func
 }
 
 export default Constellation
