@@ -9,14 +9,14 @@ font-size: 20px;
 margin: 20px;
 `
 
-class Location extends Component {
+class LocationText extends Component {
 
   render() {
 
     return (
       <div>
         <BodyText>
-          {this.props.weatherMessage}
+          {this.props.text}
         </BodyText>
       </div>
     )
@@ -24,8 +24,8 @@ class Location extends Component {
   }
 }
 
-Location.propTypes = {
-  weatherMessage: PropTypes.string
+LocationText.propTypes = {
+  text: PropTypes.string
 }
 
-export default Location
+export default LocationText

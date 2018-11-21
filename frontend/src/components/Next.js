@@ -3,7 +3,7 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
-const LinkWrapper = styled.a`
+const LinkWrapper = styled.div`
   text-decoration: none;
   cursor: pointer;
   color: purple;

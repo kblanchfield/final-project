@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Redirect } from "react-router-dom"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 
@@ -93,6 +94,11 @@ class LogInForm extends Component {
           <br />
           <Button type="submit">Submit</Button>
         </form>
+        {this.state.isLoggedIn ? (
+          <Redirect to="/location"/>
+        ) : (
+          null
+        )}
       </div>
     )
   }

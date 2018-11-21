@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
+import StarsText from "../components/StarsText"
 import Constellation from "../components/Constellation"
 import DonutChart from "../components/DonutChart"
 import Next from "../components/Next"
@@ -17,12 +18,11 @@ class StarsPage extends Component {
 
   state = {
     visibleStars: []
-    // missingStars: []
   }
 
   componentDidMount() {
     this.setState({
-      collectedStars: this.props.collectedStars
+      collectedStars: this.props.collectedStars || []
     })
     this.getVisibleConstellations()
   }
@@ -157,11 +157,14 @@ class StarsPage extends Component {
       return (
         <StarsPageWrapper>
           <div className="left">
-            There are 88 recognised constellations in the night sky.
-            Tonight you'll see {this.state.visibleStars.length} constellations.
-            That's {this.state.visibleStars.length - this.state.collectedStars.length} star constellations you haven't collected yet!
+            <StarsText
+              numConstellations={this.numConstellations}
+              numVisibleStars={this.state.visibleStars.length}
+              numMissingStars={this.state.visibleStars.length - this.state.collectedStars.length}
+              numCollectedStars={this.state.collectedStars.length}
+            />
             <DonutChart
-              data={[this.numConstellations, this.state.visibleStars.length - this.state.collectedStars.length, this.state.collectedStars.length ]}
+              data={[this.numConstellations, this.state.collectedStars.length, this.state.visibleStars.length - this.state.collectedStars.length ]}
              />
             <Next link="/location" text="Pick another location" />
           </div>

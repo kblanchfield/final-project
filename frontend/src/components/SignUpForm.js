@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Redirect } from "react-router-dom"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
@@ -28,9 +29,10 @@ const Input = styled.input`
 const Button = styled.button`
   font-family: "Helvetica", sans-serif;
   font-size: 14px;
+  text-transform: uppercase;
   border: 1px solid black;
   border-radius: 20px;
-  padding: 7px;
+  padding: 10px;
   margin: 7px 0px;
   &:hover {
     color: #EFEFEF;
@@ -58,7 +60,7 @@ class SignUpForm extends Component {
       username: this.state.username,
       password: this.state.password
     }
-    fetch("http://https://collect-the-stars.herokuapp.com/users", {
+    fetch("https://collect-the-stars.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: {
@@ -96,11 +98,11 @@ class SignUpForm extends Component {
           <br />
           <Button type="submit">Submit</Button>
         </form>
-        {this.state.isLoggedIn ?
-          <p>You're in! Go to LOCATION to start calculating the stars in your sky!</p>
-          :
-          <p></p>
-        }
+        {this.state.isLoggedIn ? (
+          <Redirect to="/location"/>
+        ) : (
+          null
+        )}
       </div>
     )
   }

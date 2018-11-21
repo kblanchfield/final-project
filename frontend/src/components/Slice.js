@@ -19,7 +19,7 @@ const Slice = props => {
   return (
     props.pie.map((slice, index) => {
     let sliceColor = interpolate(index / (props.pie.length - 1))
-    return <SliceWrapper d={arc(slice)} fill={sliceColor} ></SliceWrapper>
+    return <SliceWrapper d={arc(slice)} fill={sliceColor} key={index} ></SliceWrapper>
     })
   )
 }
