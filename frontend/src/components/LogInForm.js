@@ -58,7 +58,7 @@ class LogInForm extends Component {
       username: this.state.username,
       password: this.state.password
     }
-    fetch("http://localhost:8080/sessions", {
+    fetch("https://collect-the-stars.herokuapp.com/sessions", {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: {

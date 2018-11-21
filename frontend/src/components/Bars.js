@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 
@@ -23,7 +23,6 @@ class Bars extends Component {
           y={yScale(datum.clouds)}
           height={height - margins.bottom - scales.yScale(datum.clouds)}
           width={xScale.bandwidth()}
-          className="bar"
         >
         </BarWrapper>
       )

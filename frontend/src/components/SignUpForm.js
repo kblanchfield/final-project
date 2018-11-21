@@ -58,7 +58,7 @@ class SignUpForm extends Component {
       username: this.state.username,
       password: this.state.password
     }
-    fetch("http://localhost:8080/users", {
+    fetch("http://https://collect-the-stars.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: {

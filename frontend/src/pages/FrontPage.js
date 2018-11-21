@@ -13,6 +13,12 @@ const FrontPageWrapper = styled.div`
   position: relative;
 `
 
+const TextOverlay = styled.div`
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+`
+
 const Title = styled.h1`
   font-family: "Lily Script One", cursive;
   font-size: 100px;
@@ -90,12 +96,14 @@ class FrontPage extends Component {
     return (
       <FrontPageWrapper>
         <Particles params={particleParams} style={particlesStyle} />
-        <Title>Collect the stars</Title>
-        <Subtitle>Predict which stars will be in your sky tonight</Subtitle>
-        <Forms>
-          <LogInForm onLogin={this.props.onLogin} />
-          <SignUpForm onLogin={this.props.onLogin} />
-        </Forms>
+        <TextOverlay>
+          <Title>Collect the stars</Title>
+          <Subtitle>Predict which stars will be in your sky tonight</Subtitle>
+          <Forms>
+            <LogInForm onLogin={this.props.onLogin} />
+            <SignUpForm onLogin={this.props.onLogin} />
+          </Forms>
+        </TextOverlay>
       </FrontPageWrapper>
     )
   }

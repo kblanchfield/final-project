@@ -29,7 +29,7 @@ class StarsPage extends Component {
 
   getVisibleConstellations = () => {
     const time = this.calculateSideRealTime()
-    const url = `https://collect-the-stars.herokuapp.com?latitude=${this.props.lat}&lstHours=${time.lstHours}`
+    const url = `https://collect-the-stars.herokuapp.com/stars?latitude=${this.props.lat}&lstHours=${time.lstHours}`
     fetch(url)
       .then(response => response.json())
       .then(json => {
@@ -149,6 +149,8 @@ class StarsPage extends Component {
     })
   }
 
+  numConstellations = 49
+
   render() {
 
     if (this.state.visibleStars.length > 0) {
@@ -159,7 +161,7 @@ class StarsPage extends Component {
             Tonight you'll see {this.state.visibleStars.length} constellations.
             That's {this.state.visibleStars.length - this.state.collectedStars.length} star constellations you haven't collected yet!
             <DonutChart
-              data={[88, this.state.visibleStars.length - this.state.collectedStars, this.state.collectedStars ]}
+              data={[this.numConstellations, this.state.visibleStars.length - this.state.collectedStars.length, this.state.collectedStars.length ]}
              />
             <Next link="/location" text="Pick another location" />
           </div>
