@@ -29,7 +29,7 @@ class StarsPage extends Component {
 
   getVisibleConstellations = () => {
     const time = this.calculateSideRealTime()
-    const url = `http://localhost:8080/stars?latitude=${this.props.lat}&lstHours=${time.lstHours}`
+    const url = `https://collect-the-stars.herokuapp.com?latitude=${this.props.lat}&lstHours=${time.lstHours}`
     fetch(url)
       .then(response => response.json())
       .then(json => {
@@ -47,7 +47,7 @@ class StarsPage extends Component {
     const body = {accessToken: accessToken, constellation: constellation}
     if (this.state.collectedStars.includes(constellation)) {
       console.log("constellation IS already in state.collectedStars")
-      const url = `http://localhost:8080/constellations/remove`
+      const url = `https://collect-the-stars.herokuapp.com/constellations/remove`
       fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),
@@ -64,7 +64,7 @@ class StarsPage extends Component {
         .catch(err => console.log("error:", err))
       } else {
       console.log("constellation not already in state.collectedStars")
-      const url = `http://localhost:8080/constellations/add`
+      const url = `https://collect-the-stars.herokuapp.com/constellations/add`
       fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),
