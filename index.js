@@ -14,7 +14,8 @@ app.use(bodyParser.json())
 app.use(cors())
 
 // Connect to the "astro" database
-mongoose.connect("mongodb://localhost/astro", { useMongoClient: true })
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/astro"
+mongoose.connect(mongoUrl, { useMongoClient: true })
 
 // Use ES6 promises
 mongoose.Promise = Promise
@@ -163,4 +164,7 @@ app.put("/constellations/remove", (req, res) => {
     })
 })
 
-app.listen(8080, () => console.log("Stars API listening on port 8080"))
+const port = process.env.PORT || 8080
+app.listen(port, () => {
+  console.log(`Stars API running on port ${port}`)
+})

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js --exec babel-node"
+    "start": "babel-node index.js",
+    "dev": "nodemon index.js --exec babel-node"
   },
   "author": "kate blanchfield",
   "license": "ISC",
@@ -14,9 +15,7 @@
     "cors": "^2.8.4",
     "express": "^4.16.4",
     "mongoose": "^5.3.11",
-    "uuid": "^3.3.2"
-  },
-  "devDependencies": {
+    "uuid": "^3.3.2",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "eslint-config-technigo": "^1.6.2",

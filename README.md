@@ -7,5 +7,5 @@ Tell us where you are and we'll let you know if it'll be a clear sky to see the 
 You can log in to save your collected stars and update when you've found a new one.
 
 Tech specs
-Frontend: React, d3.js, google-maps-react, moment, prop-types, styled-components
+Frontend: React, d3.js, google-maps-react, moment, particles.js, prop-types, styled-components
 Backend: node.js, express, mongodb, mongoose
