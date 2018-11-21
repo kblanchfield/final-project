@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import Constellation from "../components/Constellation"
+import DonutChart from "../components/DonutChart"
 import Next from "../components/Next"
 
 const StarsPageWrapper = styled.div`
@@ -157,6 +158,9 @@ class StarsPage extends Component {
             There are 88 recognised constellations in the night sky.
             Tonight you'll see {this.state.visibleStars.length} constellations.
             That's {this.state.visibleStars.length - this.state.collectedStars.length} star constellations you haven't collected yet!
+            <DonutChart
+              data={[88, this.state.visibleStars.length - this.state.collectedStars, this.state.collectedStars ]}
+             />
             <Next link="/location" text="Pick another location" />
           </div>
           <div className="right">

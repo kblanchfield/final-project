@@ -5,7 +5,7 @@ import Xaxis from "./Xaxis"
 import Yaxis from "./Yaxis"
 import Bars from "./Bars"
 
-export default class Chart extends Component {
+class BarChart extends Component {
 
   data = [
     {
@@ -60,7 +60,7 @@ export default class Chart extends Component {
   render() {
 
     const margins = { top: 50, right: 50, bottom: 50, left: 50 }
-    const svgDimensions = { width: 600, height: 500 }
+    const svgDimensions = { width: 550, height: 400 }
 
     // scaleBand type
     const xScale = scaleBand()
@@ -103,6 +103,8 @@ export default class Chart extends Component {
   }
 }
 
-Chart.propTypes = {
+export default BarChart
+
+BarChart.propTypes = {
   data: PropTypes.array
 }

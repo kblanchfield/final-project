@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import styled from "styled-components"
+import Particles from "react-particles-js"
 import LogInForm from "../components/LogInForm"
 import SignUpForm from "../components/SignUpForm"
 
@@ -9,6 +10,7 @@ const FrontPageWrapper = styled.div`
   background-image: url("https://i.pinimg.com/originals/82/2d/fc/822dfcf697e7473a61897965791da389.jpg");
   background-size: cover;
   filter: opacity(0.8);
+  position: relative;
 `
 
 const Title = styled.h1`
@@ -42,18 +44,58 @@ const Forms = styled.div`
   padding: 0px;
   margin: 40px auto;
 `
+const particleParams = {
+  "particles": {
+      "number": {
+          "value": 80,
+          "density": {
+              "enable": true,
+              "value_area": 1500
+          }
+      },
+      "color": {
+        "value": "#FFFFFF"
+      },
+      "line_linked": {
+          "enable": true,
+          "opacity": 0.5
+      },
+      "move": {
+          "direction": "right",
+          "speed": 0.4
+      },
+      "size": {
+          "value": 1.5
+      },
+      "opacity": {
+          "anim": {
+              "enable": true,
+              "speed": 1,
+              "opacity_min": 1
+          }
+      }
+  },
+  "retina_detect": true
+}
+
+const particlesStyle = {
+  "position": "absolute",
+  "width": "100%",
+  "height": "100%"
+}
 
 class FrontPage extends Component {
 
   render() {
     return (
       <FrontPageWrapper>
-          <Title>Collect the stars</Title>
-          <Subtitle>Predict which stars will be in your sky tonight</Subtitle>
-          <Forms>
-            <LogInForm onLogin={this.props.onLogin} />
-            <SignUpForm onLogin={this.props.onLogin} />
-          </Forms>
+        <Particles params={particleParams} style={particlesStyle} />
+        <Title>Collect the stars</Title>
+        <Subtitle>Predict which stars will be in your sky tonight</Subtitle>
+        <Forms>
+          <LogInForm onLogin={this.props.onLogin} />
+          <SignUpForm onLogin={this.props.onLogin} />
+        </Forms>
       </FrontPageWrapper>
     )
   }

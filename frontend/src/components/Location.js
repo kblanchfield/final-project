@@ -1,5 +1,13 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+import styled from "styled-components"
+
+const BodyText = styled.p`
+color: black;
+font-family: "Helvetica", sans-serif;
+font-size: 20px;
+margin: 20px;
+`
 
 class Location extends Component {
 
@@ -7,8 +15,9 @@ class Location extends Component {
 
     return (
       <div>
-        Click on your location.
-        {this.props.weatherMessage}
+        <BodyText>
+          {this.props.weatherMessage}
+        </BodyText>
       </div>
     )
 

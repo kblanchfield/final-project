@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import Location from "../components/Location"
-import Chart from "../components/Chart"
+import BarChart from "../components/BarChart"
 import Map from "../components/Map"
 import Next from "../components/Next"
 
@@ -87,7 +87,7 @@ class LocationPage extends Component {
               lng={this.state.lng}
               weatherMessage={this.state.weatherMessage}
              />
-            <Chart data={this.state.midnightCloudCover}/>
+            <BarChart data={this.state.midnightCloudCover}/>
             <Next link="/stars" text="See tonight's stars" />
           </div>
         </div>

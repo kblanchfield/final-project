@@ -114,7 +114,11 @@ class MyMap extends Component {
           onClick={this.updateCoords}
           styles={this.styles}
         >
-        <Marker position={{ lat: this.state.lat, lng: this.state.lng }} />
+        <Marker
+          icon={{
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          }}
+          position={{ lat: this.state.lat, lng: this.state.lng }} />
         </Map>
       </div>
     );
@@ -124,8 +128,7 @@ class MyMap extends Component {
 MyMap.propTypes = {
   lat: PropTypes.number,
   lng: PropTypes.number,
-  updateCoords: PropTypes.func,
-  isMarkerShown: PropTypes.bool
+  updateCoords: PropTypes.func
 }
 
 export default GoogleApiWrapper({
