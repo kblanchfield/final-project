@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import LocationText from "../components/LocationText"
 import BarChart from "../components/BarChart"
 import Map from "../components/Map"
-import Next from "../components/Next"
 
 const LocationPageWrapper = styled.div`
   width: 100vw;
@@ -12,6 +11,23 @@ const LocationPageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   overflow: hidden;
+`
+
+const LocationLeftWrapper = styled.div`
+  width: 50%;
+  background-color: #EFEFEF;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+`
+
+const ChartTitle = styled.div`
+  margin: 20px 20px 0px 20px;
+  font-family: "Space Mono", sans-serif;
+  font-size: 14px;
+  color: black;
+  text-align: left;
 `
 
 class LocationPage extends Component {
@@ -80,13 +96,11 @@ class LocationPage extends Component {
 
     return (
       <LocationPageWrapper>
-        <div className="left">
-          <div className="locationData">
+        <LocationLeftWrapper>
             <LocationText text={this.state.weatherMessage} />
+            <ChartTitle>Chances of clouds</ChartTitle>
             <BarChart data={this.state.midnightCloudCover} />
-            <Next link="/stars" text="See tonight's stars" />
-          </div>
-        </div>
+        </LocationLeftWrapper>
         <div className="right">
           <Map
             lat={this.state.lat}

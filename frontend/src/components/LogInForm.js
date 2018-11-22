@@ -29,9 +29,10 @@ const Input = styled.input`
 const Button = styled.button`
   font-family: "Helvetica", sans-serif;
   font-size: 14px;
+  text-transform: uppercase;
   border: 1px solid black;
   border-radius: 20px;
-  padding: 7px;
+  padding: 10px;
   margin: 7px 0px;
   &:hover {
     color: #EFEFEF;

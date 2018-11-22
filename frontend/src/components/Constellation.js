@@ -3,12 +3,12 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 
 const ConstellationImage = styled.img`
-  width: 33%;
-  height: auto;
-  object-fit: cover;
+  width: 33.33%;
+  object-fit: contain;
   object-position: center;
   display: inline;
-  filter: ${props => props.collectedStars ? "opacity(0.5)" : "opacity(1)"};
+  min-width: 150px;
+  filter: ${props => props.collectedStars ? "opacity(0.25)" : "opacity(1)"};
 `
 
 class Constellation extends Component {

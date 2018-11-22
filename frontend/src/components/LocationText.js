@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const BodyText = styled.p`
 color: black;
-font-family: "Helvetica", sans-serif;
+font-family: "Space Mono", "Helvetica", sans-serif;
 font-size: 20px;
 margin: 20px;
 `

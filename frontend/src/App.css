@@ -17,26 +17,6 @@ h3 {
   text-align: center;
 }
 
-.left {
-  width: 50%;
-  background-color: #EFEFEF;
-}
-
-.locationData {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.right {
-  width: 50%;
-  height: 100%;
-  overflow: scroll;
-  line-height: 0px;
-}
 
 .Axis text {
   color: #A9A9A9;

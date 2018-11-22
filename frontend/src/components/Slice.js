@@ -14,12 +14,11 @@ const Slice = props => {
     .innerRadius(65)
     .outerRadius(130)
 
-  let interpolate = d3.interpolateRgb("#a0ced9", "#83a9b2")
+  const colors = ["#a0ced9", "#83a9b2"]
 
   return (
     props.pie.map((slice, index) => {
-    let sliceColor = interpolate(index / (props.pie.length - 1))
-    return <SliceWrapper d={arc(slice)} fill={sliceColor} key={index} ></SliceWrapper>
+    return <SliceWrapper d={arc(slice)} fill={colors[index]} key={index} ></SliceWrapper>
     })
   )
 }

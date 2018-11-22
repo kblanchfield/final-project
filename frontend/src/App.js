@@ -49,7 +49,8 @@ class App extends Component {
           <Route exact path="/stars" render={(props) => <StarsPage {...props}
             lat={this.state.lat}
             lng={this.state.lng}
-            collectedStars={this.state.collectedStars} />}
+            collectedStars={this.state.collectedStars}
+            isLoggedIn={this.state.isLoggedIn} />}
           />
           <Footer />
         </div>

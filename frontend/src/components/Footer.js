@@ -10,6 +10,7 @@ const FooterWrapper = styled.div`
   align-items: center;
   background-color: #EFEFEF;
   a {
+    font-family: "Space Mono", sans-serif;
     color: black;
     text-decoration: none;
   }

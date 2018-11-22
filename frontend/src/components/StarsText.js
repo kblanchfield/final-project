@@ -3,10 +3,11 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 
 const BodyText = styled.p`
-color: black;
-font-family: "Helvetica", sans-serif;
-font-size: 20px;
-margin: 20px;
+  color: black;
+  font-family: "Space Mono", "Helvetica", sans-serif;
+  font-size: 20px;
+  margin: 20px;
+  text-align: left;
 `
 
 class StarsText extends Component {
@@ -17,6 +18,8 @@ class StarsText extends Component {
       <div>
         <BodyText>
           There are 88 recognised constellations in the night sky.
+          <br />
+          <br />
           Tonight you'll see {this.props.numVisibleStars} constellations.
           That's {this.props.numMissingStars} star constellations you haven't collected yet!
         </BodyText>
