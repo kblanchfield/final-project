@@ -30,7 +30,6 @@ class StarsText extends Component {
 }
 
 StarsText.propTypes = {
-  numConstellations: PropTypes.number,
   numMissingStars: PropTypes.number,
   numVisibleStars: PropTypes.number
 }

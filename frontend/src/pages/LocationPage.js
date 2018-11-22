@@ -7,10 +7,13 @@ import Map from "../components/Map"
 
 const LocationPageWrapper = styled.div`
   width: 100vw;
-  height: calc(100vh - 30px);
+  min-height: calc(100vh - 30px);
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `
 
 const LocationLeftWrapper = styled.div`
@@ -20,6 +23,9 @@ const LocationLeftWrapper = styled.div`
   flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `
 
 const ChartTitle = styled.div`
@@ -30,11 +36,20 @@ const ChartTitle = styled.div`
   text-align: left;
 `
 
+const LocationRightWrapper = styled.div`
+  width: 50%;
+  height: 100%;
+  background-color: #EFEFEF;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+`
+
 class LocationPage extends Component {
 
   state = {
-    lat: 59.334591,
-    lng: 18.063240,
+    lat: 0,
+    lng: 0,
     weatherMessage: "",
     midnightCloudCover: []
   }
@@ -53,6 +68,10 @@ class LocationPage extends Component {
   }
 
   componentDidMount() {
+    this.setState({
+      lat: this.props.lat,
+      lng: this.props.lng
+    })
     this.getWeather()
   }
 
@@ -101,13 +120,13 @@ class LocationPage extends Component {
             <ChartTitle>Chances of clouds</ChartTitle>
             <BarChart data={this.state.midnightCloudCover} />
         </LocationLeftWrapper>
-        <div className="right">
+        <LocationRightWrapper>
           <Map
             lat={this.state.lat}
             lng={this.state.lng}
             updateCoords={this.updateCoords}
           />
-        </div>
+        </LocationRightWrapper>
       </LocationPageWrapper>
     )
 
@@ -115,7 +134,9 @@ class LocationPage extends Component {
 }
 
 LocationPage.propTypes = {
-  updateCoords: PropTypes.func
+  updateCoords: PropTypes.func,
+  lat: PropTypes.number,
+  lng: PropTypes.number
 }
 
 export default LocationPage

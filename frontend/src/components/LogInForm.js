@@ -24,6 +24,9 @@ const Label = styled.label`
 const Input = styled.input`
   padding: 7px;
   margin: 7px 0px;
+  @media (max-width: 600px) {
+    width: 80%
+  }
 `
 
 const Button = styled.button`

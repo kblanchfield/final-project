@@ -57,10 +57,18 @@ class BarChart extends Component {
     }
   }
 
-  render() {
+  chartWidth = () => {
+    if (window.innerWidth < 900) {
+      return window.innerWidth - 20
+    } else {
+      return (window.innerWidth - 20) / 2
+    }
+  }
 
+
+  render() {
     const margins = { top: 50, right: 50, bottom: 50, left: 50 }
-    const svgDimensions = { width: 550, height: 400 }
+    const svgDimensions = { width: this.chartWidth(), height: 400 }
 
     // scaleBand type
     const xScale = scaleBand()

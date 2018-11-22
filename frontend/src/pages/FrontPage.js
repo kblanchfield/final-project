@@ -14,9 +14,10 @@ const FrontPageWrapper = styled.div`
 `
 
 const TextOverlay = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
   margin: 0px auto;
+  z-index: 2;
 `
 
 const Title = styled.h1`
@@ -27,6 +28,11 @@ const Title = styled.h1`
   text-align: center;
   padding-top: 150px;
   margin: 0px;
+  @media (max-width: 600px) {
+    font-size: 50px;
+    margin: 0px 10px;
+    padding-top: 50px;
+  }
 `
 
 const Subtitle = styled.h3`
@@ -36,6 +42,10 @@ const Subtitle = styled.h3`
   text-align: center;
   padding: 0px;
   margin: 0px;
+  @media (max-width: 600px) {
+    font-size: 20px;
+    margin: 0px 10px;
+  }
 `
 
 const Forms = styled.div`
@@ -49,6 +59,10 @@ const Forms = styled.div`
   text-align: center;
   padding: 0px;
   margin: 40px auto;
+  @media (max-width: 600px) {
+    width: 80%
+    justify-content: space-between;
+  }
 `
 const particleParams = {
   "particles": {
@@ -87,12 +101,14 @@ const particleParams = {
 const particlesStyle = {
   "position": "absolute",
   "width": "100%",
-  "height": "100%"
+  "height": "100%",
+  "z-index": 1
 }
 
 class FrontPage extends Component {
 
-  render() {
+render() {
+  console.log(window.innerWidth)
     return (
       <FrontPageWrapper>
         <Particles params={particleParams} style={particlesStyle} />

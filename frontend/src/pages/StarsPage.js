@@ -12,6 +12,10 @@ const StarsPageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  @media (max-width: 900px) {
+    height: auto;
+    flex-direction: column;
+  }
 `
 
 const StarsLeftWrapper = styled.div`
@@ -22,6 +26,9 @@ const StarsLeftWrapper = styled.div`
   flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `
 
 const ChartTitle = styled.div`
@@ -39,6 +46,10 @@ const StarsBackground = styled.div`
   line-height: 0px;
   background-image: url("http://cdn.eso.org/images/screen/magellan-ch17-bardon-cc.jpg");
   background-position: left top;
+  text-align: center;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `
 
 class StarsPage extends Component {
@@ -134,12 +145,12 @@ class StarsPage extends Component {
         <StarsPageWrapper>
           <StarsLeftWrapper>
             <StarsText
-              numMissingStars={88 - this.state.collectedStars.length}
-              numCollectedStars={this.state.collectedStars.length}
+              numVisibleStars={this.state.visibleStars.length}
+              numMissingStars={this.state.visibleStars.length - this.state.collectedStars.length}
             />
             {this.props.isLoggedIn ?
               <div>
-                <ChartTitle>Collected star constellations</ChartTitle>
+                {/*<ChartTitle>Collected star constellations</ChartTitle>*/}
                 <DonutChart
                   data={[88 - this.state.collectedStars.length, this.state.collectedStars.length]}
                  />

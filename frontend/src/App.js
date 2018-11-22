@@ -12,8 +12,8 @@ class App extends Component {
   state = {
     isLoggedIn: false,
     collectedStars: [],
-    lat: 0,
-    lng: 0
+    lng: 18.063240,
+    lat: 59.334591
   }
 
   componentDidMount() {
@@ -44,6 +44,8 @@ class App extends Component {
             onLogin={this.checkLogInStatus} />}
             />
           <Route exact path="/location" render={(props) => <LocationPage {...props}
+            lat={this.state.lat}
+            lng={this.state.lng}
             updateCoords={this.updateCoords} />}
           />
           <Route exact path="/stars" render={(props) => <StarsPage {...props}
