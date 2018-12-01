@@ -2,12 +2,14 @@
   "name": "stars",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kblanchfield.github.io/collect-the-stars",
   "dependencies": {
     "d3": "^5.7.0",
     "d3-array": "^2.0.2",
     "d3-axis": "^1.0.12",
     "d3-scale": "^2.1.2",
     "d3-selection": "^1.3.2",
+    "gh-pages": "^2.0.1",
     "google-maps-react": "^2.0.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
@@ -18,6 +20,8 @@
     "styled-components": "^4.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
