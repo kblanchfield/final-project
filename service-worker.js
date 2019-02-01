@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/collect-the-stars/precache-manifest.9c6666f48f9bc371db9c62157aa4e752.js"
+  "/collect-the-stars/precache-manifest.4115ff43d225c9b1c68e7fecb8659d7e.js"
 );
 
 workbox.clientsClaim();

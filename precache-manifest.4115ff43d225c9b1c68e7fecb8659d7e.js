@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/collect-the-stars/static/js/runtime~main.037bb1d8.js"
   },
   {
-    "revision": "155c637091fb484c2850",
-    "url": "/collect-the-stars/static/js/main.155c6370.chunk.js"
+    "revision": "c705e3e91dd1d0065796",
+    "url": "/collect-the-stars/static/js/main.c705e3e9.chunk.js"
   },
   {
     "revision": "966ed6be5d8e54bc34f0",
     "url": "/collect-the-stars/static/js/1.966ed6be.chunk.js"
   },
   {
-    "revision": "155c637091fb484c2850",
+    "revision": "c705e3e91dd1d0065796",
     "url": "/collect-the-stars/static/css/main.05762ea4.chunk.css"
   },
   {
-    "revision": "aae0994bf17ad7de20064798325c3737",
+    "revision": "037ad1018b4ab0e183ac73da007ea9d2",
     "url": "/collect-the-stars/index.html"
   }
 ];
