@@ -80,11 +80,8 @@ class StarsPage extends Component {
 
   updateCollectedStars = constellation => {
     const accessToken = sessionStorage.getItem("accessToken")
-    console.log(accessToken)
-    console.log(constellation)
     const body = {accessToken: accessToken, constellation: constellation}
     if (this.state.collectedStars.includes(constellation)) {
-      console.log("constellation IS already in state.collectedStars")
       const url = `https://collect-the-stars.herokuapp.com/constellations/remove`
       fetch(url, {
         method: "PUT",
@@ -101,7 +98,6 @@ class StarsPage extends Component {
         })
         .catch(err => console.log("error:", err))
       } else {
-      console.log("constellation not already in state.collectedStars")
       const url = `https://collect-the-stars.herokuapp.com/constellations/add`
       fetch(url, {
         method: "PUT",
@@ -150,7 +146,6 @@ class StarsPage extends Component {
             />
             {this.props.isLoggedIn ?
               <div>
-                {/*<ChartTitle>Collected star constellations</ChartTitle>*/}
                 <DonutChart
                   data={[88 - this.state.collectedStars.length, this.state.collectedStars.length]}
                  />
@@ -177,6 +172,9 @@ class StarsPage extends Component {
         <StarsPageWrapper>
           <div className="left">
             There are 88 recognised constellations in the night sky.
+            <br />
+            <br />
+            (This page uses the free Heroku hosting service on the backend, so it might take up to 30 seconds to fully load!)
           </div>
           <div className="right">
           </div>
