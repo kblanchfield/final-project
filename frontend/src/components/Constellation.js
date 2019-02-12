@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 
@@ -11,23 +11,22 @@ const ConstellationImage = styled.img`
   filter: ${props => props.collectedStars ? "opacity(0.25)" : "opacity(1)"};
 `
 
-class Constellation extends Component {
+const Constellation = ({ constellation, onClick, collectedStars }) => {
 
-  onClick = e => {
-    this.props.onClick(this.props.constellation)
+  const handleClick = e => {
+    onClick(constellation)
   }
 
-  render() {
-    return (
-      <ConstellationImage
-        collectedStars={this.props.collectedStars.includes(this.props.constellation)}
-        src={"./images/" + this.props.constellation + ".png"}
-        alt={this.props.constellation}
-        onClick={this.onClick}
-      >
-      </ConstellationImage>
-    )
-  }
+  return (
+    <ConstellationImage
+      collectedStars={collectedStars.includes(constellation)}
+      src={"./images/" + constellation + ".png"}
+      alt={constellation}
+      onClick={handleClick}
+    >
+    </ConstellationImage>
+  )
+
 }
 
 Constellation.propTypes = {

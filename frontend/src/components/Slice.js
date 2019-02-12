@@ -7,7 +7,7 @@ const SliceWrapper = styled.path`
   transition: all 1s;
 `
 
-const Slice = props => {
+const Slice = ({ pie }) => {
 
   let arc = d3
     .arc()
@@ -17,10 +17,11 @@ const Slice = props => {
   const colors = ["#a0ced9", "#83a9b2"]
 
   return (
-    props.pie.map((slice, index) => {
+    pie.map((slice, index) => {
     return <SliceWrapper d={arc(slice)} fill={colors[index]} key={index} ></SliceWrapper>
     })
   )
+  
 }
 
 export default Slice

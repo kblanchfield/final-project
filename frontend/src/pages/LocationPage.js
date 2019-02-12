@@ -112,18 +112,19 @@ class LocationPage extends Component {
 
 
   render() {
+    const { lat,  lng, weatherMessage, midnightCloudCover } = this.state
 
     return (
       <LocationPageWrapper>
         <LocationLeftWrapper>
-            <LocationText text={this.state.weatherMessage} />
+            <LocationText text={weatherMessage} />
             <ChartTitle>Chances of clouds</ChartTitle>
-            <BarChart data={this.state.midnightCloudCover} />
+            <BarChart data={midnightCloudCover} />
         </LocationLeftWrapper>
         <LocationRightWrapper>
           <Map
-            lat={this.state.lat}
-            lng={this.state.lng}
+            lat={lat}
+            lng={lng}
             updateCoords={this.updateCoords}
           />
         </LocationRightWrapper>

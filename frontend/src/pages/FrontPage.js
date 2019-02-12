@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 import Particles from "react-particles-js"
 import LogInForm from "../components/LogInForm"
@@ -102,27 +103,28 @@ const particlesStyle = {
   "position": "absolute",
   "width": "100%",
   "height": "100%",
-  "z-index": 1
+  "zIndex": 1
 }
 
-class FrontPage extends Component {
+const FrontPage = ({ onLogin }) => {
 
-render() {
-  console.log(window.innerWidth)
-    return (
-      <FrontPageWrapper>
-        <Particles params={particleParams} style={particlesStyle} />
-        <TextOverlay>
-          <Title>Collect the stars</Title>
-          <Subtitle>Predict which stars will be in your sky tonight</Subtitle>
-          <Forms>
-            <LogInForm onLogin={this.props.onLogin} />
-            <SignUpForm onLogin={this.props.onLogin} />
-          </Forms>
-        </TextOverlay>
-      </FrontPageWrapper>
-    )
-  }
+  return (
+    <FrontPageWrapper>
+      <Particles params={particleParams} style={particlesStyle} />
+      <TextOverlay>
+        <Title>Collect the stars</Title>
+        <Subtitle>Predict which stars will be in your sky tonight</Subtitle>
+        <Forms>
+          <LogInForm onLogin={onLogin} />
+          <SignUpForm onLogin={onLogin} />
+        </Forms>
+      </TextOverlay>
+    </FrontPageWrapper>
+  )
+}
+
+FrontPage.propTypes = {
+  onLogin: PropTypes.func.isRequired
 }
 
 export default FrontPage

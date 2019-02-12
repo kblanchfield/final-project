@@ -11,10 +11,12 @@ const LinkWrapper = styled.div`
   margin: 10px auto;
 `
 
-const Next = (props) => (
+const Next = ({ link, text }) => (
+
   <LinkWrapper>
-    <Link to={props.link}>{props.text}</Link>
+    <Link to={link}>{text}</Link>
   </LinkWrapper>
+  
 )
 
 Next.propTypes = {

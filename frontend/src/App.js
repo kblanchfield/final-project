@@ -3,7 +3,6 @@ import { HashRouter as Router, Route } from "react-router-dom"
 import FrontPage from "./pages/FrontPage"
 import LocationPage from "./pages/LocationPage"
 import StarsPage from "./pages/StarsPage"
-import MapPage from "./pages/MapPage"
 import Footer from "./components/Footer"
 import './App.css'
 
@@ -37,6 +36,8 @@ class App extends Component {
   }
 
   render() {
+    const { lat,  lng, collectedStars, isLoggedIn } = this.state
+
     return (
       <Router>
         <div>
@@ -44,15 +45,15 @@ class App extends Component {
             onLogin={this.checkLogInStatus} />}
             />
           <Route exact path="/location" render={(props) => <LocationPage {...props}
-            lat={this.state.lat}
-            lng={this.state.lng}
+            lat={lat}
+            lng={lng}
             updateCoords={this.updateCoords} />}
           />
           <Route exact path="/stars" render={(props) => <StarsPage {...props}
-            lat={this.state.lat}
-            lng={this.state.lng}
-            collectedStars={this.state.collectedStars}
-            isLoggedIn={this.state.isLoggedIn} />}
+            lat={lat}
+            lng={lng}
+            collectedStars={collectedStars}
+            isLoggedIn={isLoggedIn} />}
           />
           <Footer />
         </div>

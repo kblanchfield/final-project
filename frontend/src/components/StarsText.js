@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
@@ -10,23 +10,20 @@ const BodyText = styled.p`
   text-align: left;
 `
 
-class StarsText extends Component {
+const StarsText = ({ numVisibleStars, numMissingStars })  => {
 
-  render() {
+  return (
+    <>
+      <BodyText>
+        There are 88 recognised constellations in the night sky.
+        <br />
+        <br />
+        Tonight you'll see {numVisibleStars} constellations.
+        That's {numMissingStars} star constellations you haven't collected yet!
+      </BodyText>
+    </>
+  )
 
-    return (
-      <div>
-        <BodyText>
-          There are 88 recognised constellations in the night sky.
-          <br />
-          <br />
-          Tonight you'll see {this.props.numVisibleStars} constellations.
-          That's {this.props.numMissingStars} star constellations you haven't collected yet!
-        </BodyText>
-      </div>
-    )
-
-  }
 }
 
 StarsText.propTypes = {

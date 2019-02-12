@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
@@ -9,19 +9,16 @@ font-size: 20px;
 margin: 20px;
 `
 
-class LocationText extends Component {
+const LocationText = ({ text }) => {
 
-  render() {
+  return (
+    <div>
+      <BodyText>
+        {text}
+      </BodyText>
+    </div>
+  )
 
-    return (
-      <div>
-        <BodyText>
-          {this.props.text}
-        </BodyText>
-      </div>
-    )
-
-  }
 }
 
 LocationText.propTypes = {

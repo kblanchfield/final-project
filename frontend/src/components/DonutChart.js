@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 import * as d3 from "d3"
 import Slice from "./Slice"
 
-const DonutChart = (props) => {
+const DonutChart = ({ data }) => {
 
   const height = 400
   const width = 500
 
-  let pie = d3.pie()(props.data)
+  let pie = d3.pie()(data)
 
   return (
     <svg height={height} width={width}>

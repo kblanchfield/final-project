@@ -128,26 +128,26 @@ class StarsPage extends Component {
       LST_decimal_local -= 24
     }
     const LST_hours = parseInt(LST_decimal_local)
-    const LST_mins = (LST_decimal_local % LST_hours) * 60
     return ({
       lstHours: LST_hours
     })
   }
 
   render() {
+    const { visibleStars, collectedStars } = this.state
 
-    if (this.state.visibleStars.length > 0) {
+    if (visibleStars.length > 0) {
       return (
         <StarsPageWrapper>
           <StarsLeftWrapper>
             <StarsText
-              numVisibleStars={this.state.visibleStars.length}
-              numMissingStars={this.state.visibleStars.length - this.state.collectedStars.length}
+              numVisibleStars={visibleStars.length}
+              numMissingStars={visibleStars.length - collectedStars.length}
             />
             {this.props.isLoggedIn ?
               <div>
                 <DonutChart
-                  data={[88 - this.state.collectedStars.length, this.state.collectedStars.length]}
+                  data={[88 - collectedStars.length, collectedStars.length]}
                  />
                 <DonutChartLegend />
               </div>
@@ -156,11 +156,11 @@ class StarsPage extends Component {
             }
           </StarsLeftWrapper>
           <StarsBackground>
-            {this.state.visibleStars.map(constellation =>
+            {visibleStars.map(constellation =>
                <Constellation
                 constellation={constellation}
                 key={constellation}
-                collectedStars={this.state.collectedStars}
+                collectedStars={collectedStars}
                 onClick={this.updateCollectedStars}
                />
             )}

@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
@@ -20,17 +20,16 @@ const FooterWrapper = styled.div`
   }
 `
 
-class Footer extends Component {
+const Footer = () => {
 
-  render() {
-    return (
-      <FooterWrapper>
-        <Link to="/">Home</Link>
-        <Link to="/location">Location</Link>
-        <Link to="/stars">Stars</Link>
-      </FooterWrapper>
-    )
-  }
+  return (
+    <FooterWrapper>
+      <Link to="/">Home</Link>
+      <Link to="/location">Location</Link>
+      <Link to="/stars">Stars</Link>
+    </FooterWrapper>
+  )
+
 }
 
 export default Footer
