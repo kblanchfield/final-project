@@ -1,13 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import { BodyText } from "../styledComponents/LocationTextStyles"
 
-const BodyText = styled.p`
-color: black;
-font-family: "Space Mono", "Helvetica", sans-serif;
-font-size: 20px;
-margin: 20px;
-`
 
 const LocationText = ({ text }) => {
 

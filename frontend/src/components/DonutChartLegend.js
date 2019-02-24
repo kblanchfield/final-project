@@ -1,19 +1,6 @@
 import React from "react"
-import PropTypes from "prop-types"
-import styled from "styled-components"
+import { Box, Label } from "../styledComponents/DonutChartLegendStyles"
 
-const Box = styled.div`
-  height: 10px;
-  width: 10px;
-  display: inline-block;
-  background-color: ${props => props.collected ? "#a0ced9" : "#83a9b2"};
-`
-
-const Label = styled.div`
-  display: inline-block;
-  font-family: "Space Mono", sans-serif;
-  font-size: 12px;
-`
 
 const DonutChartLegend = () => {
 
@@ -27,7 +14,3 @@ const DonutChartLegend = () => {
 }
 
 export default DonutChartLegend
-
-DonutChartLegend.propTypes = {
-  data: PropTypes.array
-}

@@ -1,11 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
 import * as d3 from "d3"
+import { SliceWrapper } from "../styledComponents/SliceStyles"
 
-const SliceWrapper = styled.path`
-  transition: all 1s;
-`
 
 const Slice = ({ pie }) => {
 
@@ -21,7 +18,7 @@ const Slice = ({ pie }) => {
     return <SliceWrapper d={arc(slice)} fill={colors[index]} key={index} ></SliceWrapper>
     })
   )
-  
+
 }
 
 export default Slice

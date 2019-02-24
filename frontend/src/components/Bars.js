@@ -1,12 +1,7 @@
 import React, { Component } from "react"
-import styled from "styled-components"
 import PropTypes from "prop-types"
+import { BarWrapper } from "../styledComponents/BarStyle"
 
-const BarWrapper = styled.rect`
-  fill: url(#myGradient);
-  transition: all 1s;
-  opacity: 0.9;
-`
 
 class Bars extends Component {
 

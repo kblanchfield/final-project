@@ -1,56 +1,11 @@
 import React, { Component } from "react"
-import styled from "styled-components"
 import PropTypes from "prop-types"
 import StarsText from "../components/StarsText"
 import Constellation from "../components/Constellation"
 import DonutChart from "../components/DonutChart"
 import DonutChartLegend from "../components/DonutChartLegend"
+import { StarsPageWrapper, StarsLeftWrapper, StarsBackground } from "../styledComponents/StarsPageStyles"
 
-const StarsPageWrapper = styled.div`
-  width: 100vw;
-  height: calc(100vh - 30px);
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  @media (max-width: 900px) {
-    height: auto;
-    flex-direction: column;
-  }
-`
-
-const StarsLeftWrapper = styled.div`
-  width: 50%;
-  background-color: #EFEFEF;
-  text-align: center;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-around;
-  align-items: center;
-  @media (max-width: 900px) {
-    width: 100%;
-  }
-`
-
-const ChartTitle = styled.div`
-  margin: 20px 20px 0px 20px;
-  font-family: "Space Mono", sans-serif;
-  font-size: 14px;
-  color: black;
-  text-align: left;
-`
-
-const StarsBackground = styled.div`
-  width: 50%;
-  height: 100%;
-  overflow: scroll;
-  line-height: 0px;
-  background-image: url("http://cdn.eso.org/images/screen/magellan-ch17-bardon-cc.jpg");
-  background-position: left top;
-  text-align: center;
-  @media (max-width: 900px) {
-    width: 100%;
-  }
-`
 
 class StarsPage extends Component {
 
@@ -67,7 +22,7 @@ class StarsPage extends Component {
 
   getVisibleConstellations = () => {
     const time = this.calculateSideRealTime()
-    const url = `https://collect-the-stars.herokuapp.com/stars?latitude=${this.props.lat}&lstHours=${time.lstHours}`
+    const url = `http://localhost:8080/stars?latitude=${this.props.lat}&lstHours=${time.lstHours}`
     fetch(url)
       .then(response => response.json())
       .then(json => {
@@ -75,14 +30,14 @@ class StarsPage extends Component {
           visibleStars: json
         })
       })
-      .catch(err => console.log("error:", err))
+      .catch(err => console.log("err:", err))
   }
 
   updateCollectedStars = constellation => {
     const accessToken = sessionStorage.getItem("accessToken")
     const body = {accessToken: accessToken, constellation: constellation}
     if (this.state.collectedStars.includes(constellation)) {
-      const url = `https://collect-the-stars.herokuapp.com/constellations/remove`
+      const url = `http://localhost:8080/constellations/remove`
       fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),
@@ -98,7 +53,7 @@ class StarsPage extends Component {
         })
         .catch(err => console.log("error:", err))
       } else {
-      const url = `https://collect-the-stars.herokuapp.com/constellations/add`
+      const url = `http://localhost:8080/constellations/add`
       fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),
@@ -112,7 +67,7 @@ class StarsPage extends Component {
             collectedStars: json.collectedStars
           })
         })
-        .catch(err => console.log("error:", err))
+        .catch(err => console.log("err:", err))
       }
   }
 

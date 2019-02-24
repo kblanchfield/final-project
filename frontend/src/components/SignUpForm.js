@@ -1,47 +1,8 @@
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import { Heading, Label, Input, Button } from "../styledComponents/LoginFormStyles"
 
-const Heading = styled.h4`
-  font-family: "Helvetica", sans-serif;
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-align: right;
-  margin: 10px;
-`
-
-const Label = styled.label`
-  font-family: "Lily Script One", cursive;
-  font-family: "Helvetica", sans-serif;
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-align: left;
-  margin: 0px;
-`
-
-const Input = styled.input`
-  padding: 7px;
-  margin: 7px 0px;
-  @media (max-width: 600px) {
-    width: 75%
-  }
-`
-
-const Button = styled.button`
-  font-family: "Helvetica", sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-  border: 1px solid black;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 7px 0px;
-  &:hover {
-    color: #EFEFEF;
-    background-color: black;
-  }
-`
 
 class SignUpForm extends Component {
 
@@ -63,7 +24,7 @@ class SignUpForm extends Component {
       username: this.state.username,
       password: this.state.password
     }
-    fetch("https://collect-the-stars.herokuapp.com/users", {
+    fetch("http://localhost:8080/users", {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: {
