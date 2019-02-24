@@ -129,7 +129,7 @@ class StarsPage extends Component {
             There are 88 recognised constellations in the night sky.
             <br />
             <br />
-            (This page uses the free Heroku hosting service on the backend, so it might take up to 30 seconds to fully load!)
+            (This page uses the free Heroku hosting service, so it might take up to 30 seconds to fully load!)
           </div>
           <div className="right">
           </div>
