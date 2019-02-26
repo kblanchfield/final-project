@@ -20,7 +20,7 @@ const getWeatherMessage = midnightCloudCover => {
   }
 }
 
-export async function getWeatherData(lat, lng) {
+export const getWeatherData = async (lat, lng) => {
   const resp = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&APPID=ee4066bbc82305811aecd61e6c30d861`)
   const json = await resp.json()
   const midnightCloudCover = getMidnightCloudCover(json)

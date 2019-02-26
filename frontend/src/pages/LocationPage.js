@@ -4,7 +4,7 @@ import LocationText from "../components/LocationText"
 import BarChart from "../components/BarChart"
 import Map from "../components/Map"
 import { LocationPageWrapper,  LocationLeftWrapper, ChartTitle, LocationRightWrapper } from "../styledComponents/LocationPageStyles"
-import { getWeatherData } from "./LocationPageLogic"
+import { getWeatherData } from "../utils/getWeatherData"
 
 class LocationPage extends Component {
 
