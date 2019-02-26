@@ -11,7 +11,7 @@ const Constellation = ({ constellation, onClick, collectedStars }) => {
 
   return (
     <ConstellationImage
-      collectedStars={collectedStars.includes(constellation)}
+      collected={collectedStars.includes(constellation)}
       src={"./images/" + constellation + ".png"}
       alt={constellation}
       onClick={handleClick}

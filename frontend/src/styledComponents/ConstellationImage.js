@@ -6,5 +6,5 @@ export const ConstellationImage = styled.img`
   object-position: center;
   display: inline;
   min-width: 150px;
-  filter: ${props => props.collectedStars ? "opacity(0.25)" : "opacity(1)"};
+  filter: ${props => props.collected ? "opacity(0.25)" : "opacity(1)"};
 `
