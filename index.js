@@ -71,9 +71,9 @@ app.get("/stars", (req, res) => {
   }).then(stars => {
     const constellations = stars.map(star => star.Constellation)
     const uniqueConstellations = [...new Set(constellations)]
-    res.json(uniqueConstellations)
+    res.status(201).json(uniqueConstellations)
   }).catch(err => {
-    res.json({ error: err })
+    res.status(400).json({ error: err })
   })
 })
 
@@ -138,30 +138,35 @@ app.post("/sessions", (req, res) => {
     })
 })
 
-// PUT user's updated collected stars - add constellation
-app.put("/constellations/add", (req, res) => {
-  User.findOneAndUpdate(
-    { accessToken: req.body.accessToken },
-    // add or remove constellation from stars in db
-    { $push: { stars: req.body.constellation } },
-    { new: true }
+// PUT user's updated collected stars - add or remove constellation
+app.put("/constellations", (req, res) => {
+  User.findOne(
+    { accessToken: req.body.accessToken }
   )
     .then(user => {
-      res.json({ collectedStars: user.stars })
+      if (user.stars.includes(req.body.constellation)) {
+        User.findOneAndUpdate(
+          { accessToken: req.body.accessToken },
+          // remove constellation from stars in db
+          { $pull: { stars: req.body.constellation } },
+          { new: true }
+        )
+          .then(result => {
+            res.json({ collectedStars: result.stars })
+          })
+      } else {
+        User.findOneAndUpdate(
+          { accessToken: req.body.accessToken },
+          // add constellation from stars in db
+          { $push: { stars: req.body.constellation } },
+          { new: true }
+        )
+          .then(result => {
+            res.json({ collectedStars: result.stars })
+          })
+      }
     })
-})
-
-// PUT user's updated collected stars - remove constellation
-app.put("/constellations/remove", (req, res) => {
-  User.findOneAndUpdate(
-    { accessToken: req.body.accessToken },
-    // add or remove constellation from stars in db
-    { $pull: { stars: req.body.constellation } },
-    { new: true }
-  )
-    .then(user => {
-      res.json({ collectedStars: user.stars })
-    })
+    .catch(err => console.log("err: ", err))
 })
 
 const port = process.env.PORT || 8080
