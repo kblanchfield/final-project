@@ -5,6 +5,7 @@ import Constellation from "../components/Constellation"
 import DonutChart from "../components/DonutChart"
 import DonutChartLegend from "../components/DonutChartLegend"
 import { StarsPageWrapper, StarsLeftWrapper, StarsBackground } from "../styledComponents/StarsPageStyles"
+import { getVisibleConstellations } from "../utils/getVisibleConstellations"
 
 
 class StarsPage extends Component {
@@ -20,24 +21,18 @@ class StarsPage extends Component {
     this.getVisibleConstellations()
   }
 
-  getVisibleConstellations = () => {
-    const time = this.calculateSideRealTime()
-    const url = `http://localhost:8080/stars?latitude=${this.props.lat}&lstHours=${time.lstHours}`
-    fetch(url)
-      .then(response => response.json())
-      .then(json => {
-        this.setState({
-          visibleStars: json
-        })
-      })
-      .catch(err => console.log("err:", err))
+  getVisibleConstellations = async () => {
+    const visibleStars = await getVisibleConstellations(this.props.lat, this.props.lng)
+    this.setState({
+      visibleStars
+    })
   }
 
   updateCollectedStars = constellation => {
-    const accessToken = sessionStorage.getItem("accessToken")
-    const body = {accessToken: accessToken, constellation: constellation}
-    if (this.state.collectedStars.includes(constellation)) {
-      const url = `http://localhost:8080/constellations/remove`
+    if (this.props.isLoggedIn) {
+      const accessToken = sessionStorage.getItem("accessToken")
+      const body = {accessToken: accessToken, constellation: constellation}
+      const url = `http://localhost:8080/constellations`
       fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),
@@ -45,47 +40,14 @@ class StarsPage extends Component {
           "Content-Type": "application/json"
         }
       })
-        .then(response => response.json())
+        .then(res => res.json())
         .then(json => {
           this.setState({
             collectedStars: json.collectedStars
           })
         })
-        .catch(err => console.log("error:", err))
-      } else {
-      const url = `http://localhost:8080/constellations/add`
-      fetch(url, {
-        method: "PUT",
-        body: JSON.stringify(body),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-        .then(response => response.json())
-        .then(json => {
-          this.setState({
-            collectedStars: json.collectedStars
-          })
-        })
-        .catch(err => console.log("err:", err))
+        .catch(err => console.log("err: ", err))
       }
-  }
-
-
-  calculateSideRealTime = () => {
-    const LST_hours_GMT = 3
-    const LST_mins_GMT = 51
-    const LST_decimal_GMT = LST_hours_GMT + (LST_mins_GMT/60)
-    let LST_decimal_local = LST_decimal_GMT + (this.props.lng/360 * 24)
-    if (LST_decimal_local < 0) {
-      LST_decimal_local += 24
-    } else if (LST_decimal_local > 24) {
-      LST_decimal_local -= 24
-    }
-    const LST_hours = parseInt(LST_decimal_local)
-    return ({
-      lstHours: LST_hours
-    })
   }
 
   render() {
