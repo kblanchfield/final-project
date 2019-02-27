@@ -1,4 +1,3 @@
-
 const calculateSideRealTime = lng => {
   const LST_hours_GMT = 3
   const LST_mins_GMT = 51
@@ -18,4 +17,18 @@ export const getVisibleConstellations = async (lat, lng) => {
   const resp = await fetch(`http://localhost:8080/stars?latitude=${lat}&lstHours=${LSTHours}`)
   const json = await resp.json()
   return json
+}
+
+export const updateCollectedStars = async body => {
+  const resp = await fetch(`http://localhost:8080/constellations`,
+    {
+      method: "PUT",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  )
+  const json = await resp.json()
+  return json.collectedStars
 }

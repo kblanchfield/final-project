@@ -5,7 +5,7 @@ import Constellation from "../components/Constellation"
 import DonutChart from "../components/DonutChart"
 import DonutChartLegend from "../components/DonutChartLegend"
 import { StarsPageWrapper, StarsLeftWrapper, StarsBackground } from "../styledComponents/StarsPageStyles"
-import { getVisibleConstellations } from "../utils/getVisibleConstellations"
+import { getVisibleConstellations, updateCollectedStars } from "../utils/constellations"
 
 
 class StarsPage extends Component {
@@ -28,26 +28,15 @@ class StarsPage extends Component {
     })
   }
 
-  updateCollectedStars = constellation => {
+  updateCollectedStars = async constellation => {
     if (this.props.isLoggedIn) {
       const accessToken = sessionStorage.getItem("accessToken")
       const body = {accessToken: accessToken, constellation: constellation}
-      const url = `http://localhost:8080/constellations`
-      fetch(url, {
-        method: "PUT",
-        body: JSON.stringify(body),
-        headers: {
-          "Content-Type": "application/json"
-        }
+      const collectedStars = await updateCollectedStars(body)
+      this.setState({
+        collectedStars
       })
-        .then(res => res.json())
-        .then(json => {
-          this.setState({
-            collectedStars: json.collectedStars
-          })
-        })
-        .catch(err => console.log("err: ", err))
-      }
+    }
   }
 
   render() {
