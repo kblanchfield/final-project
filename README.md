@@ -1,15 +1,12 @@
 Final project at Technigo bootcamp 2018.
 
 
-COLLECT THE STARS
+✨ COLLECT THE STARS 💫
 
 
-Tell us where you are and we'll let you know if it'll be a clear sky to see the stars and which constellations you could see tonight.
+Tell us where in the world you are and we'll let you know if it'll be a clear sky to see the stars and which constellations you could see tonight.
 
 
-You can log in to save your collected stars and update your collection when you've seen a new one.
+You can log in to save your collected stars and update your collection when you've seen a new one. Most of us will need to travel to see all constallations - only countries along the equator have all constallations pass across the sky.
 
-
-Frontend: React, d3.js, google-maps-react, moment, particles.js, prop-types, styled-components
-
-Backend: node.js, express, mongodb
+Built with node, mongodb, docker.
