@@ -4,7 +4,6 @@ const validateRequest = (req, next, schema) => {
     const options = {
         abortEarly: false,
         allowUnknown: true,
-        stripUnknown: true
     }
 
     const { error, value } = schema.validate(req.body, options)
@@ -27,14 +26,16 @@ const validateUser = (req, res, next) => {
 
 const validateStar = (req, res, next) => {
     const schema = Joi.object({
-        mame: Joi.string(),
-        ra_hours: Joi.number().required(),
-        ra_mins: Joi.number().required(),
-        ra_secs: Joi.number().required(),
-        dec_deg: Joi.number().required(),
-        dec_mins: Joi.number().required(),
-        dec_secs: Joi.number().required(),
-        constellation: Joi.string().required(),
+        star: Joi.object({
+            mame: Joi.string(),
+            raHours: Joi.number().required(),
+            raMins: Joi.number().required(),
+            raSecs: Joi.number().required(),
+            decDeg: Joi.number().required(),
+            decMins: Joi.number().required(),
+            decSecs: Joi.number().required(),
+            constellation: Joi.string().required(),
+        }),
     })
 
     validateRequest(req, next, schema)
@@ -42,7 +43,7 @@ const validateStar = (req, res, next) => {
 
 const validateConstellation = (req, res, next) => {
     const schema = Joi.object({
-        access_token: Joi.string().required(),
+        accessToken: Joi.string().required(),
         constellation: Joi.string().required(),
     })
 

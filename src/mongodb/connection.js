@@ -9,7 +9,7 @@ const initMongoDb = () => {
   })
 
   const connection = mongoose.connection
-  connection.on("error", err => console.error("Connection error:", err))
+  connection.on("error", err => console.error("Connection error", err))
   connection.once("open", () => console.log("MongoDB database connection established successfully"))
 }
 
